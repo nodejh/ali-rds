@@ -24,6 +24,7 @@ describe('operator.test.js', function() {
       assert.equal(op._where({ id: 1, name: 'foo\'\"' }), ' WHERE `id` = 1 AND `name` = \'foo\\\'\\\"\'');
       assert.equal(op._where({ id: 1, name: 'foo\'\"', user: 'fengmk2' }),
         ' WHERE `id` = 1 AND `name` = \'foo\\\'\\\"\' AND `user` = \'fengmk2\'');
+      assert.equal(op._where({ id: 1, name: { $startsWith: 'x' } }), 'WHERE `name` = \'foo\'');
     });
   });
 
